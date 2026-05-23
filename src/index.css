@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Tells the browser to use dark scrollbars and native inputs */
+    color-scheme: dark;
+  }
+
+  body {
+    /* Deep dark gray background, near-white text, and smooth font rendering */
+    @apply bg-zinc-950 text-zinc-50 antialiased;
+  }
+}
