@@ -1,8 +1,14 @@
 import React from 'react'
+
+import LightGlare from './LightGlare'
+import RoadDisplayPanel from './RoadDisplayPanel'
+import RainOverlay from './RainOverlay'
 import { motion } from 'framer-motion'
 
 export default function RealApp() {
   return (
+    <div>
+        
     <motion.div 
     // 2. Define the starting state (invisible and slightly pushed down)
 
@@ -12,10 +18,14 @@ export default function RealApp() {
       
       // 4. Control the timing and feel
       transition={{ duration: 0.8, ease: "easeOut" }}
-    className="">
-      <h1 className="text-4xl ">
-        my portfolio
-      </h1>
+    className="relative h-screen">
+        <RainOverlay />
+        <LightGlare />
+        <RoadDisplayPanel />
+      <div className="justify-center flex">
+      {/* <img src="/src/assets/shibuya.svg" alt="Shibuya Scramble" className="w-[40vw] skew-x-30 scale-y-60" /> */}
+      </div>
     </motion.div>
+    </div>
   )
 }
