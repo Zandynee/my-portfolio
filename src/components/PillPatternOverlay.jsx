@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const SHAPE_COUNT = 9;
 
 const COLOR_OPTIONS = [
-  'black',
+  
   'url(#grad-yellow-rose)',
   'url(#grad-green-blue)',
   'url(#grad-pink-purple)'

@@ -7,15 +7,15 @@ import TransitionWipe from './TransitionWipe'
 import BlobBackground from './BlobBackground'
 import PillPatternOverlay from './PillPatternOverlay'
 import BubbleInteractionOverlay from './BubbleInteractionOverlay'
+import CityscapeOverlay from './CityscapeOverlay'
+import TextileRainOverlay from './TextileRainOverlay'
+import StarryNightOverlay from './ParallaxStarLayer'
 
 const SLIDE_LABELS = ['01', '02', '03']
 const TOTAL_SLIDES = SLIDE_LABELS.length
 
-// 1. Array maps directly to the DESTINATION slide indexes:
-// Index 0 (Slide 1) -> Amber
-// Index 1 (Slide 2) -> Blue
-// Index 2 (Slide 3) -> Purple
-const WIPE_COLORS = ['amber', 'blue', 'purple']
+// SWAPPED: Index 0 is now Blue (Portfolio), Index 1 is now Amber (Road)
+const WIPE_COLORS = ['blue', 'amber', 'purple']
 
 export default function RealApp() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -104,14 +104,7 @@ export default function RealApp() {
         transition={{ delay: 0.6, duration: 0 }}
         className="flex w-[300vw] h-full flex-row relative z-10"
       >
-        {/* SLIDE 1 */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden">
-          <RainOverlay />
-          <LightGlare />
-          <RoadDisplayPanel />
-        </div>
-
-        {/* SLIDE 2 */}
+        {/* SLIDE 1 (Formerly Slide 2) */}
         <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-white flex items-center justify-center">
           <BlobBackground />
           <PillPatternOverlay />
@@ -119,9 +112,30 @@ export default function RealApp() {
           <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1>
         </div>
 
+        {/* SLIDE 2 (Formerly Slide 1) */}
+        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden">
+          <RainOverlay />
+          <LightGlare />
+          <RoadDisplayPanel />
+        </div>
+
         {/* SLIDE 3 */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-neutral-800 flex items-center justify-center">
-           <h1 className="text-white text-5xl font-bold tracking-widest opacity-50">SCREEN 03</h1>
+        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden flex items-center justify-center">
+          
+          {/* LAYERS (z-0 to z-50) */}
+          <StarryNightOverlay />
+          <CityscapeOverlay />
+          <TextileRainOverlay />
+          
+          {/* CONTENT (z-30 lifts text above the Cityscape) */}
+          <h1 className="relative z-30 text-white text-5xl font-bold tracking-widest opacity-50">
+            PORTFOLIO
+          </h1>
+
+          {/* FRONT BORDER OVERLAY (z-[60] forces it in front of the z-50 rain) */}
+          {/* Adjust the border thickness (border-y-[40px]) and color as needed */}
+          <div className="absolute inset-0 z-[60] pointer-events-none border-y-[40px] border-neutral-950" />
+           
         </div>
 
       </motion.div>
