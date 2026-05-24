@@ -4,6 +4,9 @@ import LightGlare from './LightGlare'
 import RoadDisplayPanel from './RoadDisplayPanel'
 import RainOverlay from './RainOverlay'
 import TransitionWipe from './TransitionWipe'
+import BlobBackground from './BlobBackground'
+import PillPatternOverlay from './PillPatternOverlay'
+import BubbleInteractionOverlay from './BubbleInteractionOverlay'
 
 const SLIDE_LABELS = ['01', '02', '03']
 const TOTAL_SLIDES = SLIDE_LABELS.length
@@ -109,8 +112,11 @@ export default function RealApp() {
         </div>
 
         {/* SLIDE 2 */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-neutral-900 flex items-center justify-center">
-          <h1 className="text-white text-5xl font-bold tracking-widest opacity-50">SCREEN 02</h1>
+        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-white flex items-center justify-center">
+          <BlobBackground />
+          <PillPatternOverlay />
+          <BubbleInteractionOverlay />
+          <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1>
         </div>
 
         {/* SLIDE 3 */}
