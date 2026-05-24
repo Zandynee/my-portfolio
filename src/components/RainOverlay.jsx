@@ -18,10 +18,10 @@ const raindrops = Array.from({ length: 150 }).map((_, i) => {
 
 export default function RainOverlay() {
   return (
-    // Changed back to 'fixed' so the storm covers the screen at all times
-    <div className="fixed inset-0 z-50 pointer-events-none mix-blend-screen overflow-hidden">
+    // Changed from `fixed` to `absolute` — now contained to the parent slide
+    <div className="absolute inset-0 z-50 pointer-events-none mix-blend-screen overflow-hidden">
       
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] rotate-[15deg]">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] rotate-[15deg]">
         
         {raindrops.map((drop) => (
           <motion.div
@@ -32,12 +32,7 @@ export default function RainOverlay() {
               backgroundImage: `repeating-linear-gradient(to bottom, transparent, transparent ${drop.pixelSize}, #cbd5e1 ${drop.pixelSize}, #cbd5e1 calc(${drop.pixelSize} * 2))`
             }}
             initial={{ y: "-20vh" }}
-            
-            // Reverted to standard 'animate' so it runs immediately and endlessly
             animate={{ y: "170vh" }}
-            
-            // The 'viewport' property has been completely removed
-            
             transition={{
               duration: drop.duration,
               delay: drop.delay,
