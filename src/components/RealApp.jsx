@@ -3,9 +3,16 @@ import { motion } from 'framer-motion'
 import LightGlare from './LightGlare'
 import RoadDisplayPanel from './RoadDisplayPanel'
 import RainOverlay from './RainOverlay'
+import TransitionWipe from './TransitionWipe'
 
 const SLIDE_LABELS = ['01', '02', '03']
 const TOTAL_SLIDES = SLIDE_LABELS.length
+
+// 1. Array maps directly to the DESTINATION slide indexes:
+// Index 0 (Slide 1) -> Amber
+// Index 1 (Slide 2) -> Blue
+// Index 2 (Slide 3) -> Purple
+const WIPE_COLORS = ['amber', 'blue', 'purple']
 
 export default function RealApp() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -17,21 +24,20 @@ export default function RealApp() {
     if (index === activeSlide || isAnimating.current) return
 
     isAnimating.current = true
+    
+    // This immediately tells the TransitionWipe what the destination slide is!
     setActiveSlide(index)
 
-    // Lock the scroll listener for the duration of the animation (850ms) 
-    // plus a tiny buffer to allow the user's trackpad inertia to settle.
+    // Lock the scroll listener for the duration of the animation
     setTimeout(() => {
       isAnimating.current = false
-    }, 1000) 
+    }, 1800) 
   }
 
   // ── Wheel Event Listener ───────────────────────────────────────
   const handleWheel = (e) => {
-    // 1. If we are currently animating, ignore all scroll events
     if (isAnimating.current) return
 
-    // 2. Set a small threshold to ignore tiny, accidental trackpad jitters
     const scrollThreshold = 30 
 
     if (e.deltaY > scrollThreshold) {
@@ -44,11 +50,17 @@ export default function RealApp() {
   }
 
   return (
-    // We no longer need a massive height. Just exactly one screen size.
     <section 
       className="relative h-screen w-full overflow-hidden bg-neutral-950"
       onWheel={handleWheel}
     >
+      {/* ── THE TRANSITION WIPE ── */}
+      {/* Uses the destination index to pick the correct color from the array */}
+      <TransitionWipe 
+        activeSlide={activeSlide} 
+        color={WIPE_COLORS[activeSlide]} 
+      />
+
       {/* ── LAYER 0: Dot-matrix panel ── */}
       <div className="absolute inset-0 z-0 pointer-events-none" />
 
@@ -82,10 +94,11 @@ export default function RealApp() {
       </nav>
 
       {/* ── LAYER 1: Horizontal slide track ── */}
-      {/* Notice how much cleaner this is. Framer Motion handles the x position declaratively based purely on the activeSlide state. */}
       <motion.div
         animate={{ x: `-${activeSlide * 100}vw` }}
-        transition={{ type: 'tween', ease: [0.87, 0, 0.13, 1], duration: 0.85 }}
+        // HIDE THE SLIDE CHANGE: Wait 0.6s while the wipe blocks the screen, 
+        // then snap to the new slide instantly behind it.
+        transition={{ delay: 0.6, duration: 0 }}
         className="flex w-[300vw] h-full flex-row relative z-10"
       >
         {/* SLIDE 1 */}
@@ -96,13 +109,13 @@ export default function RealApp() {
         </div>
 
         {/* SLIDE 2 */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-blue-700">
-          {/* YourScreenTwo */}
+        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-neutral-900 flex items-center justify-center">
+          <h1 className="text-white text-5xl font-bold tracking-widest opacity-50">SCREEN 02</h1>
         </div>
 
         {/* SLIDE 3 */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-green-500">
-           {/* YourScreenThree */}
+        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-neutral-800 flex items-center justify-center">
+           <h1 className="text-white text-5xl font-bold tracking-widest opacity-50">SCREEN 03</h1>
         </div>
 
       </motion.div>
