@@ -72,8 +72,8 @@ export default function TransitionWipe({ activeSlide, color = 'blue' }) {
         {motionDivs1.map((div, index) => (
           <motion.div
             key={`group1-${index}`}
-                initial={{ x: 1732, y: 2000 }}
-            animate={{ x: -4632, y: -1600 }}
+            initial={{ x: '120.21vw', y: '226.6vh' }}
+            animate={{ x: '-321.25vw', y: '-226.6vh' }}
             transition={{ delay: div.delay, duration: div.duration }}
             className="relative w-[300vw] shrink-0" 
           >
@@ -88,8 +88,8 @@ export default function TransitionWipe({ activeSlide, color = 'blue' }) {
         {motionDivs2.map((div, index) => (
           <motion.div
             key={`group2-${index}`}
-              initial={{ x: 1732, y: 2000 }}
-            animate={{ x: -4632, y: -1600 }}
+            initial={{ x: '120.21vw', y: '226.6vh' }}
+            animate={{ x: '-321.25vw', y: '-226.6vh' }}
             transition={{ delay: div.delay, duration: div.duration }}
             className="relative w-[300vw] shrink-0"
           >
