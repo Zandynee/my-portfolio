@@ -105,7 +105,7 @@ export default function RealApp() {
         className="flex w-[300vw] h-full flex-row relative z-10"
       >
         {/* SLIDE 1 (Formerly Slide 2) */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden bg-white flex items-center justify-center">
+        <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
           <BlobBackground />
           <PillPatternOverlay />
           <BubbleInteractionOverlay />
@@ -113,14 +113,14 @@ export default function RealApp() {
         </div>
 
         {/* SLIDE 2 (Formerly Slide 1) */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden">
+        <div className="relative w-screen h-full shrink-0 overflow-hidden">
           <RainOverlay />
           <LightGlare />
           <RoadDisplayPanel />
         </div>
 
         {/* SLIDE 3 */}
-        <div className="relative w-screen h-full flex-shrink-0 overflow-hidden flex items-center justify-center">
+        <div className="relative w-screen h-full shrink-0 overflow-hidden flex items-center justify-center">
           
           {/* LAYERS (z-0 to z-50) */}
           <StarryNightOverlay />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
-import { motion } from 'framer-motion'
+import { gsap } from 'gsap'
 
 const COLOR_OPTIONS = [
   'url(#grad-yellow-rose)',
@@ -19,6 +19,60 @@ function makeBubble(isClick, x, y) {
     strokeWidth: isClick ? 6 : 2,
     duration:    isClick ? 0.7 : 0.5,
   }
+}
+
+// Individual bubble circle — runs its own GSAP timeline on mount and
+// fires onRemove via onComplete, matching the original onAnimationComplete pattern.
+function BubbleCircle({ b, onRemove }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const perimeter = 2 * Math.PI * b.size
+
+    gsap.set(el, {
+      strokeDasharray: perimeter,
+      strokeDashoffset: perimeter,
+      opacity: 0,
+      scale: 0.8,
+      // svgOrigin keeps scale anchored to the circle's own centre in SVG space
+      svgOrigin: `${b.x} ${b.y}`,
+    })
+
+    // times: [0, 0.3, 1]
+    // pathLength: [0, 1, 1], opacity: [0, 0.9, 0], scale: [0.8, 1, 1.1]
+    const tl = gsap.timeline({ onComplete: () => onRemove(b.id) })
+    tl
+      .to(el, {
+        strokeDashoffset: 0,
+        opacity: 0.9,
+        scale: 1,
+        duration: b.duration * 0.3,
+        ease: 'power1.inOut',
+      })
+      .to(el, {
+        opacity: 0,
+        scale: 1.1,
+        duration: b.duration * 0.7,
+        ease: 'power1.inOut',
+      })
+
+    return () => tl.kill()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <circle
+      ref={ref}
+      cx={b.x}
+      cy={b.y}
+      r={b.size}
+      fill="none"
+      stroke={b.color}
+      strokeWidth={b.strokeWidth}
+    />
+  )
 }
 
 export default function BubbleInteractionOverlay() {
@@ -108,27 +162,13 @@ export default function BubbleInteractionOverlay() {
       </svg>
 
       {/*
-        No AnimatePresence — the bubble animates itself to invisible, then
-        onAnimationComplete fires and removes it from state. This cuts the
-        VDOM subscription overhead AnimatePresence adds per mounted child.
+        Each BubbleCircle manages its own GSAP timeline and self-removes
+        via onComplete — matching the original onAnimationComplete pattern
+        without AnimatePresence overhead.
       */}
       <svg className="w-full h-full pointer-events-none">
         {bubbles.map(b => (
-          <motion.circle
-            key={b.id}
-            cx={b.x}
-            cy={b.y}
-            r={b.size}
-            fill="none"
-            stroke={b.color}
-            strokeWidth={b.strokeWidth}
-            // transformOrigin at the circle's own centre so scale is squish-free
-            style={{ transformOrigin: `${b.x}px ${b.y}px` }}
-            initial={{ pathLength: 0, opacity: 0, scale: 0.8 }}
-            animate={{ pathLength: [0, 1, 1], opacity: [0, 0.9, 0], scale: [0.8, 1, 1.1] }}
-            transition={{ duration: b.duration, ease: 'easeInOut', times: [0, 0.3, 1] }}
-            onAnimationComplete={() => removeBubble(b.id)}
-          />
+          <BubbleCircle key={b.id} b={b} onRemove={removeBubble} />
         ))}
       </svg>
     </div>
