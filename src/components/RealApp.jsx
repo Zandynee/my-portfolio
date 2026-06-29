@@ -10,12 +10,13 @@ import BubbleInteractionOverlay from './BubbleInteractionOverlay'
 import CityscapeOverlay from './CityscapeOverlay'
 import TextileRainOverlay from './TextileRainOverlay'
 import StarryNightOverlay from './ParallaxStarLayer'
+import WireframeMesh from './WireframeMesh'
 
-const SLIDE_LABELS = ['01', '02', '03']
+const SLIDE_LABELS = ['01', '02', '03','04']
 const TOTAL_SLIDES = SLIDE_LABELS.length
 
 // SWAPPED: Index 0 is now Blue (Portfolio), Index 1 is now Amber (Road)
-const WIPE_COLORS = ['blue', 'amber', 'purple']
+const WIPE_COLORS = ['blue', 'amber', ,'purple']
 
 export default function RealApp() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -102,7 +103,7 @@ export default function RealApp() {
         // HIDE THE SLIDE CHANGE: Wait 0.6s while the wipe blocks the screen, 
         // then snap to the new slide instantly behind it.
         transition={{ delay: 0.6, duration: 0 }}
-        className="flex w-[300vw] h-full flex-row relative z-10"
+        className="flex w-[400vw] h-full flex-row relative z-10"
       >
         {/* SLIDE 1 (Formerly Slide 2) */}
         <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
@@ -136,6 +137,10 @@ export default function RealApp() {
           {/* Adjust the border thickness (border-y-[40px]) and color as needed */}
           <div className="absolute inset-0 z-[60] pointer-events-none border-y-[40px] border-neutral-950" />
            
+        </div>
+          <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
+         <WireframeMesh/>
+          {/* <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1> */}
         </div>
 
       </motion.div>
