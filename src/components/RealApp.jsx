@@ -1,16 +1,16 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import LightGlare from './LightGlare'
-import RoadDisplayPanel from './RoadDisplayPanel'
-import RainOverlay from './RainOverlay'
 import TransitionWipe from './TransitionWipe'
 import BlobBackground from './BlobBackground'
 import PillPatternOverlay from './PillPatternOverlay'
 import BubbleInteractionOverlay from './BubbleInteractionOverlay'
 import CityscapeOverlay from './CityscapeOverlay'
-import TextileRainOverlay from './TextileRainOverlay'
 import StarryNightOverlay from './ParallaxStarLayer'
 import WireframeMesh from './WireframeMesh'
+import roadDisplaySign from '../assets/RoadDisplaySign.svg'
+import RainCanvas from './RainCanvas'
+import { RAIN_LAYERS, TEXTILE_LAYERS } from './RainPresets'
 
 const SLIDE_LABELS = ['01', '02', '03','04']
 const TOTAL_SLIDES = SLIDE_LABELS.length
@@ -115,9 +115,42 @@ export default function RealApp() {
 
         {/* SLIDE 2 (Formerly Slide 1) */}
         <div className="relative w-screen h-full shrink-0 overflow-hidden">
-          <RainOverlay />
+          {/*
+            RAIN LAYER — rewritten again, this time off SVG tiling entirely.
+
+            Old problem: an oversized (150%) wrapper div was rotated 15deg to
+            hide pattern seams, and the SVG's own background-size tiling
+            didn't always land inside that rotated box on every viewport —
+            that's what caused streaks to render misaligned/outside the
+            visible frame.
+
+            New approach: a single <canvas>, exactly the size of this slide
+            (no oversizing, no rotation trick needed — each drop just carries
+            its own angled velocity vector). It's driven by one GSAP ticker
+            callback that mutates canvas pixels directly, so there's no
+            per-frame React re-render. The ticker only runs while this is the
+            active slide (`active={activeSlide === 1}`), so it costs nothing
+            when scrolled away. Drops respawn individually with fresh random
+            speed/length/opacity, so it never reads as a short repeating
+            loop the way the old 0.35–0.7s SVG pattern loop did.
+          */}
+          <RainCanvas
+            active={activeSlide === 1}
+            angle={15}
+            layers={RAIN_LAYERS}
+            blendMode="screen"
+            className="absolute inset-0 z-50 pointer-events-none"
+          />
           <LightGlare />
-          <RoadDisplayPanel />
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center mix-blend-screen opacity-50">
+            <img
+              src={roadDisplaySign}
+              alt=""
+              draggable={false}
+              className="w-full h-auto select-none"
+            />
+          </div>
+          
         </div>
 
         {/* SLIDE 3 */}
@@ -126,7 +159,24 @@ export default function RealApp() {
           {/* LAYERS (z-0 to z-50) */}
           <StarryNightOverlay />
           <CityscapeOverlay />
-          <TextileRainOverlay />
+          {/*
+            TEXTILE DEPTH LINES — same rewrite as the rain layer above.
+            The old version ran three perpetual Framer `animate={{y:[...]}}`
+            loops (durations as short as 0.08s — that's what made it feel
+            twitchy/misaligned) inside a 200%-oversized rotated wrapper.
+
+            It's the same falling-streak concept as the rain layer, just a
+            different palette/density/angle, so it reuses <RainCanvas />
+            directly. Only ticks while Slide 3 is active
+            (`active={activeSlide === 2}`).
+          */}
+          <RainCanvas
+            active={activeSlide === 2}
+            angle={-20}
+            layers={TEXTILE_LAYERS}
+            blendMode="screen"
+            className="absolute inset-0 z-50 pointer-events-none"
+          />
           
           {/* CONTENT (z-30 lifts text above the Cityscape) */}
           <h1 className="relative z-30 text-white text-5xl font-bold tracking-widest opacity-50">

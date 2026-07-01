@@ -1,0 +1,950 @@
+<svg width="1632" height="256" viewBox="0 0 1632 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+svg { overflow: visible; }
+.dot-off { fill: rgba(63,63,70,0.3); }
+.dot-lit { fill: #fbbf24; }
+@keyframes scrollRow0 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-1952px); }
+}
+#row0_track {
+  animation: scrollRow0 7.320s steps(61, jump-end) infinite;
+}
+@keyframes scrollRow1 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-1984px); }
+}
+#row1_track {
+  animation: scrollRow1 7.440s steps(62, jump-end) infinite;
+}
+@keyframes scrollRow2 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-1984px); }
+}
+#row2_track {
+  animation: scrollRow2 7.440s steps(62, jump-end) infinite;
+}
+@keyframes scrollRow3 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-1984px); }
+}
+#row3_track {
+  animation: scrollRow3 7.440s steps(62, jump-end) infinite;
+}
+@keyframes scrollRow4 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-1984px); }
+}
+#row4_track {
+  animation: scrollRow4 7.440s steps(62, jump-end) infinite;
+}
+@keyframes scrollRow5 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-1984px); }
+}
+#row5_track {
+  animation: scrollRow5 7.440s steps(62, jump-end) infinite;
+}
+@keyframes scrollRow6 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-1952px); }
+}
+#row6_track {
+  animation: scrollRow6 7.320s steps(61, jump-end) infinite;
+}
+</style>
+<defs>
+<clipPath id="signClip">
+  <rect x="16" y="16" width="1600" height="224" rx="4"/>
+</clipPath>
+<filter id="dotGlow" x="-200%" y="-200%" width="500%" height="500%">
+  <feGaussianBlur stdDeviation="6" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+</defs>
+<g id="RoadDisplaySign" style="mix-blend-mode:screen;opacity:0.5">
+<g clip-path="url(#signClip)">
+<g id="row0_track">
+<circle cx="28.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="60.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="92.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="124.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="156.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="188.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="220.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="252.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="284.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="316.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="348.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="380.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="412.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="444.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="476.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="508.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="540.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="572.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="604.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="636.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="668.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="700.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="732.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="764.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="796.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="828.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="860.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="892.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="924.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="956.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="988.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1020.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1052.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1084.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1116.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1148.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1180.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1212.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1244.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1276.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1308.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1340.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1372.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1404.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1436.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1468.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1500.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1532.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1564.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1596.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1628.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1660.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1692.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1724.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1756.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1788.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1820.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1852.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1884.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1916.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1948.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="1980.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2012.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2044.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2076.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2108.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2140.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2172.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2204.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2236.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2268.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2300.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2332.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2364.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2396.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2428.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2460.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2492.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2524.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2556.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2588.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2620.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2652.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2684.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2716.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2748.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2780.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2812.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2844.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2876.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2908.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2940.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="2972.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3004.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3036.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3068.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3100.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3132.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3164.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3196.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3228.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3260.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3292.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3324.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3356.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3388.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3420.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3452.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3484.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3516.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3548.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3580.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3612.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3644.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3676.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3708.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3740.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3772.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3804.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3836.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3868.0" cy="28.0" r="12.0" class="dot dot-off"/>
+<circle cx="3900.0" cy="28.0" r="12.0" class="dot dot-off"/>
+</g>
+<g id="row1_track">
+<circle cx="28.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="60.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="92.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="124.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="156.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="188.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="220.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="252.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="284.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="316.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="348.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="380.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="412.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="444.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="476.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="508.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="540.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="572.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="604.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="636.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="668.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="700.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="732.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="764.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="796.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="828.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="860.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="892.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="924.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="956.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="988.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1020.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1052.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1084.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1116.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1148.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1180.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1212.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1244.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1276.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1308.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1340.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1372.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1404.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1436.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1468.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1500.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1532.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1564.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1596.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1628.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1660.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1692.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1724.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1756.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1788.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1820.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1852.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1884.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1916.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1948.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="1980.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2012.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2044.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2076.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2108.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2140.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2172.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2204.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2236.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2268.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2300.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2332.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2364.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2396.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2428.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2460.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2492.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2524.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2556.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2588.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2620.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2652.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2684.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2716.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2748.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2780.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2812.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2844.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2876.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2908.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2940.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="2972.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3004.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3036.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3068.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3100.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3132.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3164.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3196.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3228.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3260.0" cy="60.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3292.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3324.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3356.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3388.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3420.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3452.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3484.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3516.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3548.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3580.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3612.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3644.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3676.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3708.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3740.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3772.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3804.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3836.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3868.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3900.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3932.0" cy="60.0" r="12.0" class="dot dot-off"/>
+<circle cx="3964.0" cy="60.0" r="12.0" class="dot dot-off"/>
+</g>
+<g id="row2_track">
+<circle cx="28.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="60.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="92.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="124.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="156.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="188.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="220.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="252.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="284.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="316.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="348.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="380.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="412.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="444.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="476.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="508.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="540.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="572.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="604.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="636.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="668.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="700.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="732.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="764.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="796.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="828.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="860.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="892.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="924.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="956.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="988.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1020.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1052.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1084.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1116.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1148.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1180.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1212.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1244.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1276.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1308.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1340.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1372.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1404.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1436.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1468.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1500.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1532.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1564.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1596.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1628.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1660.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1692.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1724.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1756.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1788.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1820.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1852.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1884.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1916.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1948.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="1980.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2012.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2044.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2076.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2108.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2140.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2172.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2204.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2236.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2268.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2300.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2332.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2364.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2396.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2428.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2460.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2492.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2524.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2556.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2588.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2620.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2652.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2684.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2716.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2748.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2780.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2812.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2844.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2876.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2908.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2940.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="2972.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3004.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3036.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3068.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3100.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3132.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3164.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3196.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3228.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3260.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3292.0" cy="92.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3324.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3356.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3388.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3420.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3452.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3484.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3516.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3548.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3580.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3612.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3644.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3676.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3708.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3740.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3772.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3804.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3836.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3868.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3900.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3932.0" cy="92.0" r="12.0" class="dot dot-off"/>
+<circle cx="3964.0" cy="92.0" r="12.0" class="dot dot-off"/>
+</g>
+<g id="row3_track">
+<circle cx="28.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="60.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="92.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="124.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="156.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="188.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="220.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="252.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="284.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="316.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="348.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="380.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="412.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="444.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="476.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="508.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="540.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="572.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="604.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="636.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="668.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="700.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="732.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="764.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="796.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="828.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="860.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="892.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="924.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="956.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="988.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1020.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1052.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1084.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1116.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1148.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1180.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1212.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1244.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1276.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1308.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1340.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1372.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1404.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1436.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1468.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1500.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1532.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1564.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1596.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1628.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1660.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1692.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1724.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1756.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1788.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1820.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1852.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1884.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1916.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1948.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="1980.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2012.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2044.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2076.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2108.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2140.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2172.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2204.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2236.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2268.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2300.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2332.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2364.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2396.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2428.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2460.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2492.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2524.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2556.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2588.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2620.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2652.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2684.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2716.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2748.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2780.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2812.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2844.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2876.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2908.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2940.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="2972.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3004.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3036.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3068.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3100.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3132.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3164.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3196.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3228.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3260.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3292.0" cy="124.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3324.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3356.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3388.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3420.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3452.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3484.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3516.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3548.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3580.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3612.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3644.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3676.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3708.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3740.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3772.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3804.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3836.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3868.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3900.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3932.0" cy="124.0" r="12.0" class="dot dot-off"/>
+<circle cx="3964.0" cy="124.0" r="12.0" class="dot dot-off"/>
+</g>
+<g id="row4_track">
+<circle cx="28.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="60.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="92.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="124.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="156.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="188.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="220.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="252.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="284.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="316.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="348.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="380.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="412.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="444.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="476.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="508.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="540.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="572.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="604.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="636.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="668.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="700.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="732.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="764.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="796.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="828.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="860.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="892.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="924.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="956.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="988.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1020.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1052.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1084.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1116.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1148.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1180.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1212.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1244.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1276.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1308.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1340.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1372.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1404.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1436.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1468.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1500.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1532.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1564.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1596.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1628.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1660.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1692.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1724.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1756.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1788.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1820.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1852.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1884.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1916.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1948.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="1980.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2012.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2044.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2076.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2108.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2140.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2172.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2204.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2236.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2268.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2300.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2332.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2364.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2396.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2428.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2460.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2492.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2524.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2556.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2588.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2620.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2652.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2684.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2716.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2748.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2780.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2812.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2844.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2876.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2908.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2940.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="2972.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3004.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3036.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3068.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3100.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3132.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3164.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3196.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3228.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3260.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3292.0" cy="156.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3324.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3356.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3388.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3420.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3452.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3484.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3516.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3548.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3580.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3612.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3644.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3676.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3708.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3740.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3772.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3804.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3836.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3868.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3900.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3932.0" cy="156.0" r="12.0" class="dot dot-off"/>
+<circle cx="3964.0" cy="156.0" r="12.0" class="dot dot-off"/>
+</g>
+<g id="row5_track">
+<circle cx="28.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="60.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="92.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="124.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="156.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="188.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="220.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="252.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="284.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="316.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="348.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="380.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="412.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="444.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="476.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="508.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="540.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="572.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="604.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="636.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="668.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="700.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="732.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="764.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="796.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="828.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="860.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="892.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="924.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="956.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="988.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1020.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1052.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1084.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1116.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1148.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1180.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1212.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1244.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1276.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="1308.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1340.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1372.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1404.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1436.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1468.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1500.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1532.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1564.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1596.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1628.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1660.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1692.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1724.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1756.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1788.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1820.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1852.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1884.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1916.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1948.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="1980.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2012.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2044.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2076.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2108.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2140.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2172.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2204.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2236.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2268.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2300.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2332.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2364.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2396.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2428.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2460.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2492.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2524.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2556.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2588.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2620.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2652.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2684.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2716.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2748.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2780.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2812.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2844.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2876.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="2908.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2940.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="2972.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3004.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3036.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3068.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3100.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3132.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3164.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3196.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3228.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3260.0" cy="188.0" r="12.0" class="dot dot-lit" filter="url(#dotGlow)"/>
+<circle cx="3292.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3324.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3356.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3388.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3420.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3452.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3484.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3516.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3548.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3580.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3612.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3644.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3676.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3708.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3740.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3772.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3804.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3836.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3868.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3900.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3932.0" cy="188.0" r="12.0" class="dot dot-off"/>
+<circle cx="3964.0" cy="188.0" r="12.0" class="dot dot-off"/>
+</g>
+<g id="row6_track">
+<circle cx="28.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="60.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="92.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="124.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="156.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="188.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="220.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="252.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="284.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="316.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="348.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="380.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="412.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="444.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="476.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="508.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="540.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="572.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="604.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="636.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="668.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="700.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="732.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="764.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="796.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="828.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="860.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="892.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="924.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="956.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="988.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1020.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1052.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1084.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1116.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1148.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1180.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1212.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1244.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1276.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1308.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1340.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1372.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1404.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1436.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1468.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1500.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1532.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1564.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1596.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1628.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1660.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1692.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1724.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1756.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1788.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1820.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1852.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1884.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1916.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1948.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="1980.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2012.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2044.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2076.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2108.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2140.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2172.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2204.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2236.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2268.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2300.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2332.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2364.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2396.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2428.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2460.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2492.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2524.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2556.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2588.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2620.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2652.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2684.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2716.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2748.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2780.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2812.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2844.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2876.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2908.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2940.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="2972.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3004.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3036.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3068.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3100.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3132.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3164.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3196.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3228.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3260.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3292.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3324.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3356.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3388.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3420.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3452.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3484.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3516.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3548.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3580.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3612.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3644.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3676.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3708.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3740.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3772.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3804.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3836.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3868.0" cy="220.0" r="12.0" class="dot dot-off"/>
+<circle cx="3900.0" cy="220.0" r="12.0" class="dot dot-off"/>
+</g>
+</g>
+</g>
+</svg>

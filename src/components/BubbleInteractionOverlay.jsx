@@ -7,7 +7,9 @@ const COLOR_OPTIONS = [
   'url(#grad-pink-purple)',
 ]
 
-const MAX_BUBBLES = 30
+const MAX_BUBBLES = 12
+const MOVE_SPAWN_MIN_INTERVAL_MS = 20 // minimum time between move-triggered bubbles
+const MOVE_SPAWN_MIN_DISTANCE   = 48   // minimum pointer travel (px) before another bubble spawns
 let uid = 0
 
 function makeBubble(isClick, x, y) {
@@ -80,6 +82,8 @@ export default function BubbleInteractionOverlay() {
   const isClickingRef = useRef(false)   // ref, not state — no re-renders, no listener churn
   const rafRef        = useRef(null)
   const latestMoveRef = useRef(null)    // always holds the freshest pointer position
+  const lastSpawnAtRef  = useRef(0)     // timestamp of the last move-triggered spawn
+  const lastSpawnPosRef = useRef(null)  // position of the last move-triggered spawn
   const [bubbles, setBubbles] = useState([])
 
   // Stable across renders — no useCallback deps needed because everything
@@ -117,7 +121,16 @@ export default function BubbleInteractionOverlay() {
       rafRef.current = requestAnimationFrame(() => {
         const pos = latestMoveRef.current
         if (pos && !isClickingRef.current) {
-          spawnBubble(pos.x, pos.y, false)
+          const now = performance.now()
+          const last = lastSpawnPosRef.current
+          const dist = last ? Math.hypot(pos.x - last.x, pos.y - last.y) : Infinity
+          const elapsed = now - lastSpawnAtRef.current
+
+          if (elapsed >= MOVE_SPAWN_MIN_INTERVAL_MS && dist >= MOVE_SPAWN_MIN_DISTANCE) {
+            spawnBubble(pos.x, pos.y, false)
+            lastSpawnAtRef.current = now
+            lastSpawnPosRef.current = pos
+          }
           latestMoveRef.current = null
         }
         rafRef.current = null

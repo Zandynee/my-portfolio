@@ -6,11 +6,15 @@ import { Delaunay } from 'd3-delaunay'
 import gsap from 'gsap'
 
 // ─── Tune these ──────────────────────────────────────────────────────────────
-const COUNT        = 80    // number of mesh vertices
-const REPEL_RADIUS = 400   // cursor influence zone (px)
-const REPEL_FORCE  = 1     // push strength
-const SPRING_K     = 0.01 // restoring force — higher = snappier return
-const DAMPING      = 0.85  // velocity falloff per frame
+const COUNT          = 80    // number of mesh vertices
+const REPEL_RADIUS   = 400   // cursor influence zone (px)
+const REPEL_FORCE    = 1     // push strength
+const SPRING_K       = 0.004 // restoring force — lower = looser, freer roaming
+const DAMPING        = 0.94  // velocity falloff per frame — higher = glides longer
+const MAX_SPEED      = 0.5    // px/frame velocity clamp, keeps the looser spring stable
+const RETARGET_CHANCE = 0.0015 // per-point, per-frame odds of wandering to a new home
+const ROAM_MARGIN    = 160   // how far past the screen edge a new home can land (px)
+const FADE_MARGIN    = 90    // px beyond the screen edge over which points fade out & de-render
 
 // ─── Helper: Draw Star ───────────────────────────────────────────────────────
 function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
@@ -45,9 +49,18 @@ function createPoints(W, H) {
       homeX: x, homeY: y,
       vx: 0, vy: 0,
       phase:  Math.random() * Math.PI * 2,
-      driftR: 12 + Math.random() * 22, // ambient drift radius
+      driftR: 30 + Math.random() * 60, // ambient drift radius — wider, freer orbits
+      edgeA:  1, // 1 = fully visible, fades to 0 once past FADE_MARGIN off-screen
     }
   })
+}
+
+// 1 while inside the canvas, fades linearly to 0 over FADE_MARGIN px past the edge
+function edgeAlpha(x, y, W, H) {
+  const dx = x < 0 ? -x : x > W ? x - W : 0
+  const dy = y < 0 ? -y : y > H ? y - H : 0
+  const d  = Math.max(dx, dy)
+  return d <= 0 ? 1 : Math.max(0, 1 - d / FADE_MARGIN)
 }
 
 export default function WireframeMesh() {
@@ -86,6 +99,14 @@ export default function WireframeMesh() {
 
       // Physics
       for (const p of points) {
+        // Occasionally wander to a brand-new home, anywhere on (or just past) the
+        // screen — this is what gives the mesh its free, non-repeating roam instead
+        // of each point just orbiting a fixed spot.
+        if (Math.random() < RETARGET_CHANCE) {
+          p.homeX = -ROAM_MARGIN + Math.random() * (W + ROAM_MARGIN * 2)
+          p.homeY = -ROAM_MARGIN + Math.random() * (H + ROAM_MARGIN * 2)
+        }
+
         // Slow sinusoidal orbit around each point's home position
         const driftX = p.homeX + Math.sin(time * 0.38 + p.phase) * p.driftR
         const driftY = p.homeY + Math.cos(time * 0.28 + p.phase * 1.4) * p.driftR * 0.65
@@ -105,8 +126,20 @@ export default function WireframeMesh() {
         p.vy += (driftY - p.y) * SPRING_K
         p.vx *= DAMPING
         p.vy *= DAMPING
-        p.x  += p.vx
-        p.y  += p.vy
+
+        // Clamp speed so the looser spring/damping can't run away
+        const speed = Math.hypot(p.vx, p.vy)
+        if (speed > MAX_SPEED) {
+          p.vx = (p.vx / speed) * MAX_SPEED
+          p.vy = (p.vy / speed) * MAX_SPEED
+        }
+
+        p.x += p.vx
+        p.y += p.vy
+
+        // How visible this point is right now — 0 once it's wandered far enough
+        // off-screen, which is what drives the de-render/fade below.
+        p.edgeA = edgeAlpha(p.x, p.y, W, H)
       }
 
       // ── Render ─────────────────────────────────────────────────────────────
@@ -122,6 +155,11 @@ export default function WireframeMesh() {
         const b = points[triangles[i + 1]]
         const c = points[triangles[i + 2]]
 
+        // Combined visibility of the triangle — fully de-rendered once any
+        // vertex is past the fade margin, so nothing draws outside the frame.
+        const triA = Math.min(a.edgeA, b.edgeA, c.edgeA)
+        if (triA <= 0) continue
+
         // Centroid → proximity glow 0–1
         const cx = (a.x + b.x + c.x) / 3
         const cy = (a.y + b.y + c.y) / 3
@@ -134,13 +172,13 @@ export default function WireframeMesh() {
         ctx.closePath()
 
         // Fill: Subtly increases in opacity but remains blue
-        ctx.fillStyle = `rgba(30, 100, 255, ${+(0.01 + g * 0.08).toFixed(3)})`
+        ctx.fillStyle = `rgba(30, 100, 255, ${+(0.01 + g * 0.08).toFixed(3) * triA})`
         ctx.fill()
 
         // Stroke: Light blue (low opacity) → Vibrant blue (high opacity) near cursor
         const rVal = (150 - g * 120) | 0 // transitions 150 -> 30
         const gVal = (200 - g * 100) | 0 // transitions 200 -> 100
-        const alpha = +(0.5 + g * 0.8).toFixed(3) // 0.1 -> 0.9
+        const alpha = +(0.5 + g * 0.8).toFixed(3) * triA // 0.1 -> 0.9, faded near edges
         ctx.strokeStyle = `rgba(${rVal}, ${gVal}, 255, ${alpha})`
         ctx.lineWidth   = 0.5 + g * 1.2
         ctx.stroke()
@@ -148,11 +186,13 @@ export default function WireframeMesh() {
 
       // Draw vertex dots / stars
       for (const p of points) {
+        if (p.edgeA <= 0) continue // fully off-screen — de-rendered
+
         const g = Math.max(0, 1 - Math.hypot(p.x - mouse.x, p.y - mouse.y) / 190)
         const r = 1.2 + g * 14.5
 
-        // Fill: Light blue -> solid bright blue
-        const dotAlpha = +(0.2 + g * 0.8).toFixed(3)
+        // Fill: Light blue -> solid bright blue, faded out near the screen edge
+        const dotAlpha = +(0.2 + g * 0.8).toFixed(3) * p.edgeA
         ctx.fillStyle = `rgba(100, 180, 255, ${dotAlpha})`
 
         // Interaction threshold: Become a star if hovered (g > 0.2)
@@ -171,7 +211,7 @@ export default function WireframeMesh() {
         if (g > 0.4) {
           ctx.beginPath()
           ctx.arc(p.x, p.y, r * 3.5, 0, Math.PI * 2)
-          ctx.strokeStyle = `rgba(100, 180, 255, ${+(g * 0.4).toFixed(3)})`
+          ctx.strokeStyle = `rgba(100, 180, 255, ${+(g * 0.4).toFixed(3) * p.edgeA})`
           ctx.lineWidth   = 0.5
           ctx.stroke()
         }
