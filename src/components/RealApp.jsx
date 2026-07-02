@@ -8,6 +8,7 @@ import BubbleInteractionOverlay from './BubbleInteractionOverlay'
 import CityscapeOverlay from './CityscapeOverlay'
 import StarryNightOverlay from './ParallaxStarLayer'
 import WireframeMesh from './WireframeMesh'
+import FloatingStarsOverlay from './FloatingStarsOverlay'
 import roadDisplaySign from '../assets/RoadDisplaySign.svg'
 import RainCanvas from './RainCanvas'
 import { RAIN_LAYERS, TEXTILE_LAYERS } from './RainPresets'
@@ -189,7 +190,9 @@ export default function RealApp() {
            
         </div>
           <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
+          <FloatingStarsOverlay />
          <WireframeMesh/>
+        
           {/* <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1> */}
         </div>
 

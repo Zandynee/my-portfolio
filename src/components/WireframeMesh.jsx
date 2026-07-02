@@ -189,7 +189,7 @@ export default function WireframeMesh() {
         if (p.edgeA <= 0) continue // fully off-screen — de-rendered
 
         const g = Math.max(0, 1 - Math.hypot(p.x - mouse.x, p.y - mouse.y) / 190)
-        const r = 1.2 + g * 14.5
+        const r = 1.2 + g * 5
 
         // Fill: Light blue -> solid bright blue, faded out near the screen edge
         const dotAlpha = +(0.2 + g * 0.8).toFixed(3) * p.edgeA
