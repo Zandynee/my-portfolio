@@ -13,15 +13,23 @@ import roadDisplaySign from '../assets/RoadDisplaySign.svg'
 import RainCanvas from './RainCanvas'
 import { RAIN_LAYERS, TEXTILE_LAYERS } from './RainPresets'
 
-const SLIDE_LABELS = ['01', '02', '03','04']
+const SLIDE_LABELS = ['01', '02', '03', '04']
 const TOTAL_SLIDES = SLIDE_LABELS.length
 
 // SWAPPED: Index 0 is now Blue (Portfolio), Index 1 is now Amber (Road)
-const WIPE_COLORS = ['blue', 'amber', ,'purple']
+const WIPE_COLORS = ['blue', 'amber', , 'purple']
+
+// How many slides away from the active one still get their heavy overlays
+// mounted. 0 = only the active slide is ever mounted (cheapest, but the
+// wipe transition will "pop" the destination slide's animations in fresh
+// rather than having them already warmed up). 1 keeps the active slide
+// plus its immediate neighbors mounted, which is a good balance since the
+// wipe already covers the screen during the switch.
+const MOUNT_RADIUS = 1
 
 export default function RealApp() {
   const [activeSlide, setActiveSlide] = useState(0)
-  
+
   // This ref acts as our "cooldown" lock to prevent double-scrolling
   const isAnimating = useRef(false)
 
@@ -29,21 +37,21 @@ export default function RealApp() {
     if (index === activeSlide || isAnimating.current) return
 
     isAnimating.current = true
-    
+
     // This immediately tells the TransitionWipe what the destination slide is!
     setActiveSlide(index)
 
     // Lock the scroll listener for the duration of the animation
     setTimeout(() => {
       isAnimating.current = false
-    }, 1800) 
+    }, 1800)
   }
 
   // ── Wheel Event Listener ───────────────────────────────────────
   const handleWheel = (e) => {
     if (isAnimating.current) return
 
-    const scrollThreshold = 30 
+    const scrollThreshold = 30
 
     if (e.deltaY > scrollThreshold) {
       // Scrolled down -> Go to next
@@ -54,16 +62,26 @@ export default function RealApp() {
     }
   }
 
+  // Only slides within MOUNT_RADIUS of the active one get their overlay
+  // effects mounted. Every effect component here (Blob/Pill/Bubble/
+  // Cityscape/StarryNight/FloatingStars/WireframeMesh/LightGlare) starts
+  // its GSAP timelines/tickers in a useEffect and kills them on cleanup —
+  // so unmounting is what actually stops them from running off-screen.
+  // This is the same trick RainCanvas already does internally via its
+  // `active` prop; here we get the same effect for every other component
+  // for free, without changing any of their internals or call signatures.
+  const isMounted = (index) => Math.abs(index - activeSlide) <= MOUNT_RADIUS
+
   return (
-    <section 
+    <section
       className="relative h-screen w-full overflow-hidden bg-neutral-950"
       onWheel={handleWheel}
     >
       {/* ── THE TRANSITION WIPE ── */}
       {/* Uses the destination index to pick the correct color from the array */}
-      <TransitionWipe 
-        activeSlide={activeSlide} 
-        color={WIPE_COLORS[activeSlide]} 
+      <TransitionWipe
+        activeSlide={activeSlide}
+        color={WIPE_COLORS[activeSlide]}
       />
 
       {/* ── LAYER 0: Dot-matrix panel ── */}
@@ -101,16 +119,20 @@ export default function RealApp() {
       {/* ── LAYER 1: Horizontal slide track ── */}
       <motion.div
         animate={{ x: `-${activeSlide * 100}vw` }}
-        // HIDE THE SLIDE CHANGE: Wait 0.6s while the wipe blocks the screen, 
+        // HIDE THE SLIDE CHANGE: Wait 0.6s while the wipe blocks the screen,
         // then snap to the new slide instantly behind it.
         transition={{ delay: 0.6, duration: 0 }}
         className="flex w-[400vw] h-full flex-row relative z-10"
       >
         {/* SLIDE 1 (Formerly Slide 2) */}
         <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
-          <BlobBackground />
-          <PillPatternOverlay />
-          <BubbleInteractionOverlay />
+          {isMounted(0) && (
+            <>
+              <BlobBackground />
+              <PillPatternOverlay />
+              <BubbleInteractionOverlay />
+            </>
+          )}
           <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1>
         </div>
 
@@ -122,7 +144,7 @@ export default function RealApp() {
             Old problem: an oversized (150%) wrapper div was rotated 15deg to
             hide pattern seams, and the SVG's own background-size tiling
             didn't always land inside that rotated box on every viewport —
-            that's what caused streaks to render misaligned/outside the
+            that's what caused streaks to render outside/misaligned with the
             visible frame.
 
             New approach: a single <canvas>, exactly the size of this slide
@@ -142,7 +164,7 @@ export default function RealApp() {
             blendMode="screen"
             className="absolute inset-0 z-50 pointer-events-none"
           />
-          <LightGlare />
+          {isMounted(1) && <LightGlare />}
           <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center mix-blend-screen opacity-50">
             <img
               src={roadDisplaySign}
@@ -151,15 +173,19 @@ export default function RealApp() {
               className="w-full h-auto select-none"
             />
           </div>
-          
+
         </div>
 
         {/* SLIDE 3 */}
         <div className="relative w-screen h-full shrink-0 overflow-hidden flex items-center justify-center">
-          
+
           {/* LAYERS (z-0 to z-50) */}
-          <StarryNightOverlay />
-          <CityscapeOverlay />
+          {isMounted(2) && (
+            <>
+              <StarryNightOverlay />
+              <CityscapeOverlay />
+            </>
+          )}
           {/*
             TEXTILE DEPTH LINES — same rewrite as the rain layer above.
             The old version ran three perpetual Framer `animate={{y:[...]}}`
@@ -178,7 +204,7 @@ export default function RealApp() {
             blendMode="screen"
             className="absolute inset-0 z-50 pointer-events-none"
           />
-          
+
           {/* CONTENT (z-30 lifts text above the Cityscape) */}
           <h1 className="relative z-30 text-white text-5xl font-bold tracking-widest opacity-50">
             PORTFOLIO
@@ -187,12 +213,15 @@ export default function RealApp() {
           {/* FRONT BORDER OVERLAY (z-[60] forces it in front of the z-50 rain) */}
           {/* Adjust the border thickness (border-y-[40px]) and color as needed */}
           <div className="absolute inset-0 z-[60] pointer-events-none border-y-[40px] border-neutral-950" />
-           
+
         </div>
-          <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
-          <FloatingStarsOverlay />
-         <WireframeMesh/>
-        
+        <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
+          {isMounted(3) && (
+            <>
+              <FloatingStarsOverlay />
+              <WireframeMesh />
+            </>
+          )}
           {/* <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1> */}
         </div>
 

@@ -1,31 +1,38 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
-const STAR_COUNT = 22;
+const STAR_COUNT = 36; // fewer, since each triangle is now large
 
-// Simple 5-point star shape, reused as a clip-path on every star
-const STAR_CLIP =
-  'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)';
-
+// Simple equilateral-ish triangle, reused as a clip-path on every piece
+const STAR_CLIP = 'polygon(50% 0%, 0% 100%, 100% 100%)';
 const generateStars = () => {
   return Array.from({ length: STAR_COUNT }).map((_, i) => {
-    const size = Math.floor(Math.random() * 14) + 6; // 6-20px
-    const duration = Math.random() * 14 + 18; // 18-32s to cross the whole diagonal
-    const delay = Math.random() * -duration; // negative delay -> already mid-flight on mount
-    const startBottom = Math.random() * 40 - 10; // vh, staggered start rows near the bottom
-    const startLeft = Math.random() * 30 - 20; // vw, staggered start columns near the left
-    const opacity = Math.random() * 0.5 + 0.4;
+    const size = Math.random() * 4 + 8; 
+    
+    // SLOWER MAIN PATH: Increased from (18-32s) to (35-65s) to cross the screen
+    const duration = Math.random() * 30 + 35; 
+    
+    const delay = Math.random() * -duration; 
+    const startBottom = -(Math.random() * 20 + size + 10); 
+    const startLeft = -(Math.random() * 20 + size + 10); 
+    const opacity = Math.random() * 0.15 + 0.1; 
+    const hueStart = Math.random() * 25 + 265; 
+    const hueEnd = Math.random() * 25 + 215; 
 
-    // FLOATY WOBBLE: gentle up/down + side/side drift layered on top of the main path
-    const wobbleDuration = Math.random() * 2.5 + 1.8; // 1.8-4.3s per bob cycle
-    const wobbleY = Math.random() * 14 + 8; // px bob amplitude
-    const wobbleX = Math.random() * 10 + 4; // px sway amplitude
+    // SLOWER WOBBLE: Increased from (1.8-4.3s) to (4-7s) per bob cycle
+    const wobbleDuration = Math.random() * 3 + 4; 
+    const wobbleY = Math.random() * 14 + 8; 
+    const wobbleX = Math.random() * 10 + 4; 
 
-    // LEAF-LIKE Z-SPIN: random skew swing, each star gets its own rate/direction
-    const skewRange = Math.random() * 30 + 15; // 15-45deg swing
-    const skewDuration = Math.random() * 2.5 + 1.5; // 1.5-4s per skew flip
-    const spinDuration = Math.random() * 10 + 6; // 6-16s per full rotation
+    // SLOWER FLUTTER & SPIN: Relaxed the leaf-like rotation
+    const skewRange = Math.random() * 30 + 15; 
+    const skewDuration = Math.random() * 3 + 4; // Increased from (1.5-4s)
+    const spinDuration = Math.random() * 15 + 12; // Increased from (6-16s) to (12-27s)
     const spinDirection = Math.random() > 0.5 ? 1 : -1;
+
+    // (Keep your updated wider destinations here)
+    const destX = Math.random() * 100 + 150; 
+    const destY = -(Math.random() * 100 + 150); 
 
     return {
       id: `star-${i}`,
@@ -35,6 +42,8 @@ const generateStars = () => {
       startBottom,
       startLeft,
       opacity,
+      hueStart,
+      hueEnd,
       wobbleDuration,
       wobbleY,
       wobbleX,
@@ -42,10 +51,11 @@ const generateStars = () => {
       skewDuration,
       spinDuration,
       spinDirection,
+      destX, // Export the new X destination
+      destY, // Export the new Y destination
     };
   });
 };
-
 // Each star manages its own GSAP animations, split across three layers so the
 // (expensive-ish) heavy diagonal tween never has to fight with the cheap wobble/spin loops.
 // OUTER: the long straight bottom-left -> top-right journey (transform only, GPU-friendly).
@@ -63,10 +73,11 @@ function StarItem({ s }) {
     if (!outer || !middle || !inner) return
 
     // OUTER: straight diagonal path, off-screen bottom-left -> off-screen top-right
+   // OUTER: straight diagonal path, off-screen bottom-left -> off-screen top-right
     gsap.set(outer, { x: '-10vw', y: '10vh' })
     const pathTween = gsap.to(outer, {
-      x: '110vw',
-      y: '-110vh',
+      x: `${s.destX}vw`, // Replaced '110vw' with dynamic value
+      y: `${s.destY}vh`, // Replaced '-110vh' with dynamic value
       duration: s.duration,
       delay: s.delay,
       ease: 'none',
@@ -99,11 +110,29 @@ function StarItem({ s }) {
       repeat: -1,
     })
 
+    // COLOR: purple right after spawn -> blue right before it loops back offscreen.
+    // Driven by a plain JS proxy (not the CSS gradient) so it can be read every frame
+    // cheaply, and locked to the exact same duration/delay/repeat as the path tween
+    // so the color and position always finish their lap together.
+    const color = { hue: s.hueStart }
+    const colorTween = gsap.to(color, {
+      hue: s.hueEnd,
+      duration: s.duration,
+      delay: s.delay,
+      ease: 'none',
+      repeat: -1,
+      onUpdate: () => {
+        inner.style.background = `hsl(${color.hue}, 85%, 62%)`
+        inner.style.filter = `drop-shadow(0 0 ${s.size * 0.15}vw hsla(${color.hue}, 85%, 65%, 0.5))`
+      },
+    })
+
     return () => {
       pathTween.kill()
       wobbleTween.kill()
       flutterTween.kill()
       spinTween.kill()
+      colorTween.kill()
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -121,12 +150,12 @@ function StarItem({ s }) {
         <div
           ref={innerRef}
           style={{
-            width: s.size,
-            height: s.size,
+            width: `${s.size}vw`,
+            height: `${s.size}vw`,
             clipPath: STAR_CLIP,
-            background: '#a5b4fc',
+            background: `hsl(${s.hueStart}, 85%, 62%)`,
             opacity: s.opacity,
-            filter: 'drop-shadow(0 0 3px rgba(255,255,255,0.6))',
+            filter: `drop-shadow(0 0 ${s.size * 0.15}vw hsla(${s.hueStart}, 85%, 65%, 0.5))`,
             willChange: 'transform',
           }}
         />
