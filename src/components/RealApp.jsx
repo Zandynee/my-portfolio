@@ -10,7 +10,10 @@ import StarryNightOverlay from './ParallaxStarLayer'
 import WireframeMesh from './WireframeMesh'
 import FloatingStarsOverlay from './FloatingStarsOverlay'
 import roadDisplaySign from '../assets/RoadDisplaySign.svg'
+import NebulaLine from './NebulaLine'
+import FocusedStarfield from './FocusedStarfield'
 import RainCanvas from './RainCanvas'
+import ParallaxWrapper from './ParallaxWrapper'
 import { RAIN_LAYERS, TEXTILE_LAYERS } from './RainPresets'
 
 const SLIDE_LABELS = ['01', '02', '03', '04']
@@ -133,7 +136,7 @@ export default function RealApp() {
               <BubbleInteractionOverlay />
             </>
           )}
-          <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1>
+          <h1 className="text-blue-500 text-[10vw] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1>
         </div>
 
         {/* SLIDE 2 (Formerly Slide 1) */}
@@ -182,8 +185,15 @@ export default function RealApp() {
           {/* LAYERS (z-0 to z-50) */}
           {isMounted(2) && (
             <>
-              <StarryNightOverlay />
-              <CityscapeOverlay />
+              <div className="absolute inset-0 z-10">
+                <StarryNightOverlay />
+                <ParallaxWrapper maxRotation={6} scale={1.05} backgroundColor="transparent">
+                   
+                      <CityscapeOverlay />
+                </ParallaxWrapper>
+              </div>
+             
+           
             </>
           )}
           {/*
@@ -215,11 +225,35 @@ export default function RealApp() {
           <div className="absolute inset-0 z-[60] pointer-events-none border-y-[40px] border-neutral-950" />
 
         </div>
-        <div className="relative w-screen h-full shrink-0 overflow-hidden bg-white flex items-center justify-center">
+        <div className="relative w-screen h-full shrink-0 overflow-hidden bg-[#111023] flex items-center justify-center">
           {isMounted(3) && (
-            <>
-              <FloatingStarsOverlay />
-              <WireframeMesh />
+        <>
+              {/* 1. STATIC BACKGROUND (Deepest Layer)
+                Stays perfectly flat in the deep background. 
+              */}
+             
+
+              {/* 2. TILTED MIDGROUND (The Parallax Layer)
+                Make sure backgroundColor is "transparent" so you can see the stars behind it!
+                We wrap it in a z-10 absolute div so it stacks perfectly over the background.
+              */}
+              <div className="absolute inset-0 z-10">
+                <ParallaxWrapper maxRotation={6} scale={1.10} backgroundColor="transparent">
+                  <WireframeMesh active={activeSlide === 3} />
+                  
+                    <FloatingStarsOverlay active={activeSlide === 3} />
+                </ParallaxWrapper>
+              </div>
+             
+              {/* 3. STATIC FOREGROUND (Closest Layer)
+                Stays perfectly flat, rendering over top of the tilted nebula.
+                pointer-events-none ensures it doesn't block your mouse from moving the ParallaxWrapper.
+              */}
+              <div className="absolute inset-0 z-20 pointer-events-none">
+                <NebulaLine />
+                
+                <FocusedStarfield active={activeSlide === 3} />
+              </div>
             </>
           )}
           {/* <h1 className="text-blue-500 text-[20vh] skew-x-3 font-bold tracking-widest opacity-80">PORTFOLIO</h1> */}

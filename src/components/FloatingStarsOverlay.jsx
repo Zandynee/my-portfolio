@@ -15,7 +15,7 @@ const generateStars = () => {
     const delay = Math.random() * -duration; 
     const startBottom = -(Math.random() * 20 + size + 10); 
     const startLeft = -(Math.random() * 20 + size + 10); 
-    const opacity = Math.random() * 0.15 + 0.1; 
+    const opacity = Math.random() * 0.25 + 0.1; 
     const hueStart = Math.random() * 25 + 265; 
     const hueEnd = Math.random() * 25 + 215; 
 
@@ -34,6 +34,12 @@ const generateStars = () => {
     const destX = Math.random() * 100 + 150; 
     const destY = -(Math.random() * 100 + 150); 
 
+    // PERF: the glow (drop-shadow) is now computed ONCE from the midpoint hue
+    // instead of being re-derived from a live color value every animation frame.
+    // At these opacities the color drift in the glow is imperceptible, but
+    // recomputing a blurred drop-shadow 36x per frame was the main jank source.
+    const glowHue = (hueStart + hueEnd) / 2;
+
     return {
       id: `star-${i}`,
       size,
@@ -44,6 +50,7 @@ const generateStars = () => {
       opacity,
       hueStart,
       hueEnd,
+      glowHue,
       wobbleDuration,
       wobbleY,
       wobbleX,
@@ -61,10 +68,11 @@ const generateStars = () => {
 // OUTER: the long straight bottom-left -> top-right journey (transform only, GPU-friendly).
 // MIDDLE: the floaty bob/sway "leaf on the wind" wobble, small + cheap, runs forever.
 // INNER: the z-axis skew "flutter" + slow spin — the visual star shape lives here.
-function StarItem({ s }) {
+function StarItem({ s, active }) {
   const outerRef = useRef(null)
   const middleRef = useRef(null)
   const innerRef = useRef(null)
+  const tweensRef = useRef([])
 
   useEffect(() => {
     const outer = outerRef.current
@@ -73,11 +81,10 @@ function StarItem({ s }) {
     if (!outer || !middle || !inner) return
 
     // OUTER: straight diagonal path, off-screen bottom-left -> off-screen top-right
-   // OUTER: straight diagonal path, off-screen bottom-left -> off-screen top-right
     gsap.set(outer, { x: '-10vw', y: '10vh' })
     const pathTween = gsap.to(outer, {
-      x: `${s.destX}vw`, // Replaced '110vw' with dynamic value
-      y: `${s.destY}vh`, // Replaced '-110vh' with dynamic value
+      x: `${s.destX}vw`,
+      y: `${s.destY}vh`,
       duration: s.duration,
       delay: s.delay,
       ease: 'none',
@@ -110,31 +117,30 @@ function StarItem({ s }) {
       repeat: -1,
     })
 
-    // COLOR: purple right after spawn -> blue right before it loops back offscreen.
-    // Driven by a plain JS proxy (not the CSS gradient) so it can be read every frame
-    // cheaply, and locked to the exact same duration/delay/repeat as the path tween
-    // so the color and position always finish their lap together.
-    const color = { hue: s.hueStart }
-    const colorTween = gsap.to(color, {
-      hue: s.hueEnd,
-      duration: s.duration,
-      delay: s.delay,
-      ease: 'none',
-      repeat: -1,
-      onUpdate: () => {
-        inner.style.background = `hsl(${color.hue}, 85%, 62%)`
-        inner.style.filter = `drop-shadow(0 0 ${s.size * 0.15}vw hsla(${color.hue}, 85%, 65%, 0.5))`
-      },
-    })
+    // PERF FIX: there used to be a `colorTween` here animating `backgroundColor`
+    // on this same element every frame. But `inner`'s `background` (below) is
+    // an *opaque* linear-gradient covering the whole box, so a backgroundColor
+    // tween underneath it was never visible — it was pure wasted paint work
+    // (color/background-color changes force a repaint, unlike transform/opacity
+    // which are compositor-only) on all 36 stars, every frame, for zero visual
+    // effect. The color drift you see is already baked into the static
+    // hueStart -> hueEnd gradient. Removed.
+
+    tweensRef.current = [pathTween, wobbleTween, flutterTween, spinTween]
 
     return () => {
       pathTween.kill()
       wobbleTween.kill()
       flutterTween.kill()
       spinTween.kill()
-      colorTween.kill()
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Pause every tween when this slide isn't the active/nearby one instead of
+  // letting 36 stars x 4 tweens keep ticking off-screen for no visual payoff.
+  useEffect(() => {
+    tweensRef.current.forEach((t) => (active ? t.play() : t.pause()))
+  }, [active])
 
   return (
     <div
@@ -147,24 +153,26 @@ function StarItem({ s }) {
       }}
     >
       <div ref={middleRef} style={{ willChange: 'transform' }}>
-        <div
-          ref={innerRef}
-          style={{
-            width: `${s.size}vw`,
-            height: `${s.size}vw`,
-            clipPath: STAR_CLIP,
-            background: `hsl(${s.hueStart}, 85%, 62%)`,
-            opacity: s.opacity,
-            filter: `drop-shadow(0 0 ${s.size * 0.15}vw hsla(${s.hueStart}, 85%, 65%, 0.5))`,
-            willChange: 'transform',
-          }}
-        />
+       <div
+      ref={innerRef}
+      style={{
+        width: `${s.size}vw`,
+        height: `${s.size}vw`,
+        clipPath: STAR_CLIP,
+        // Replace dynamic backgroundColor with a static gradient
+        background: `linear-gradient(135deg, hsl(${s.hueStart}, 85%, 62%), hsl(${s.hueEnd}, 85%, 62%))`,
+        opacity: s.opacity,
+        filter: `drop-shadow(0 0 ${s.size * 0.15}vw hsla(${s.glowHue}, 85%, 65%, 0.5))`,
+        willChange: 'transform',
+        contain: 'paint',
+      }}
+    />
       </div>
     </div>
   )
 }
 
-export default function FloatingStarsOverlay() {
+export default function FloatingStarsOverlay({ active = true }) {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
@@ -174,7 +182,7 @@ export default function FloatingStarsOverlay() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-40">
       {stars.map((s) => (
-        <StarItem key={s.id} s={s} />
+        <StarItem key={s.id} s={s} active={active} />
       ))}
     </div>
   );

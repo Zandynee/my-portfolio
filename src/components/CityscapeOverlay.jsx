@@ -21,6 +21,7 @@ const generateBuildings = () => {
       id: `city-block-${i}`,
       width,
       height: `${heightVmax}vh`,
+      heightVh: heightVmax, // raw number, used to compute canvas pixel size without a DOM read
       duration,
       delay,
       windows,
@@ -82,10 +83,14 @@ function BuildingItem({ b }) {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    // Resize canvas to match the DOM element's actual pixel size
-    const rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = rect.width;
-    canvas.height = rect.height;
+    // PERF: size the canvas from data we already generated (b.width is a px
+    // number, b.heightVh converts against window.innerHeight) instead of
+    // calling getBoundingClientRect(). That call forces a synchronous layout
+    // flush, and with 18 buildings each doing it on mount — interleaved with
+    // GSAP's own gsap.set() writes on sibling elements above — it was causing
+    // layout thrashing (repeated forced reflow) right as the scene appears.
+    canvas.width = b.width;
+    canvas.height = Math.round((b.heightVh / 100) * window.innerHeight);
 
     // Drawing Config (Matches your original CSS Grid exact dimensions)
     const colWidth = 8;
