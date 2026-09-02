@@ -55,16 +55,17 @@ export default function ParallaxWrapper({
       scheduleApply()
     }
 
-    container.addEventListener('mousemove', handleMouseMove, { passive: true })
-    container.addEventListener('mouseleave', handleMouseLeave, { passive: true })
+    // CHANGE THESE to listen to the window instead of the container
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    window.addEventListener('mouseleave', handleMouseLeave, { passive: true })
 
     return () => {
-      container.removeEventListener('mousemove', handleMouseMove)
-      container.removeEventListener('mouseleave', handleMouseLeave)
+      // Clean up window listeners
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseleave', handleMouseLeave)
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current)
     }
   }, [maxRotation])
-
   return (
     <div
       ref={containerRef}

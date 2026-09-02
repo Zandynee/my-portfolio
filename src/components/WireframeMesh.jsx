@@ -5,14 +5,14 @@ import { Delaunay } from 'd3-delaunay'
 import gsap from 'gsap'
 
 // ─── Tune these (Calmer & Denser Settings) ───────────────────────────────────
-const COUNT            = 50    // number of mesh vertices (increased for density)
+const COUNT            = 67    // number of mesh vertices (increased for density)
 const MAX_LINE_LENGTH  = 250   // Max distance in px for a line to be drawn
 const EDGE_FADE_MARGIN = 60    // px range over which triangles smoothly fade in/out
 const REPEL_RADIUS     = 400   // cursor influence zone (px)
 const REPEL_FORCE      = 0.5   // push strength (halved for calmer interaction)
 const SPRING_K         = 0.002 // restoring force (lower = looser)
 const DAMPING          = 0.90  // velocity falloff (more friction)
-const MAX_SPEED        = 0.15  // px/frame velocity clamp (drastically slowed)
+const MAX_SPEED        = 0.1  // px/frame velocity clamp (drastically slowed)
 const RETARGET_CHANCE  = 0.0005// very rare odds of wandering to a new home
 const ROAM_MARGIN      = 160   // how far past the screen edge a new home can land (px)
 const FADE_MARGIN      = 90    // px beyond the screen edge over which points fade out
@@ -220,7 +220,7 @@ export default function WireframeMesh({ active = true }) {
         const alphaIndex = Math.min(100, Math.max(0, Math.round(rawAlpha * 100)))
         
         ctx.strokeStyle = STROKE_COLORS[alphaIndex]
-        ctx.lineWidth   = 0.5 + g * 1.2
+        ctx.lineWidth   = 0.2 + g * 0.6
         ctx.stroke()
       }
 

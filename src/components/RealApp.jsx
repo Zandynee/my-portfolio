@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import LightGlare from './LightGlare'
 import TransitionWipe from './TransitionWipe'
@@ -49,6 +49,27 @@ export default function RealApp() {
       isAnimating.current = false
     }, 1800)
   }
+
+  // ── Keyboard Event Listener ─────────────────────────────────────
+  // Supports both Up/Down (matches the wheel gesture) and Left/Right
+  // (matches the horizontal slide track visually). Re-attached whenever
+  // activeSlide changes so goToSlide's closure stays fresh.
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (isAnimating.current) return
+
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault()
+        if (activeSlide < TOTAL_SLIDES - 1) goToSlide(activeSlide + 1)
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault()
+        if (activeSlide > 0) goToSlide(activeSlide - 1)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [activeSlide])
 
   // ── Wheel Event Listener ───────────────────────────────────────
   const handleWheel = (e) => {
@@ -187,7 +208,7 @@ export default function RealApp() {
             <>
               <div className="absolute inset-0 z-10">
                 <StarryNightOverlay />
-                <ParallaxWrapper maxRotation={6} scale={1.05} backgroundColor="transparent">
+                <ParallaxWrapper maxRotation={-6} scale={1.05} backgroundColor="transparent">
                    
                       <CityscapeOverlay />
                 </ParallaxWrapper>
@@ -237,12 +258,27 @@ export default function RealApp() {
                 Make sure backgroundColor is "transparent" so you can see the stars behind it!
                 We wrap it in a z-10 absolute div so it stacks perfectly over the background.
               */}
+       {/* 2. TILTED MIDGROUND (The Parallax Layer) */}
               <div className="absolute inset-0 z-10">
-                <ParallaxWrapper maxRotation={6} scale={1.10} backgroundColor="transparent">
-                  <WireframeMesh active={activeSlide === 3} />
-                  
+                
+                {/* LAYER A: Floating Stars */}
+                <div className="absolute inset-0 z-10">
+                  <ParallaxWrapper maxRotation={-20} scale={1.33} backgroundColor="transparent">
                     <FloatingStarsOverlay active={activeSlide === 3} />
-                </ParallaxWrapper>
+                  </ParallaxWrapper>
+                </div>
+
+                {/* LAYER B: Wireframe Mesh 
+                    pointer-events-none prevents this div from blocking 
+                    clicks to things underneath, while the window mousemove 
+                    ensures it still tilts!
+                */}
+                <div className="absolute inset-0 z-20 pointer-events-none">
+                  <ParallaxWrapper maxRotation={8} scale={1.05} backgroundColor="transparent">
+                    <WireframeMesh active={activeSlide === 3} />
+                  </ParallaxWrapper>
+                </div>
+              
               </div>
              
               {/* 3. STATIC FOREGROUND (Closest Layer)

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
-const STAR_COUNT = 36; // fewer, since each triangle is now large
+const STAR_COUNT = 48; // fewer, since each triangle is now large
 
 // Simple equilateral-ish triangle, reused as a clip-path on every piece
 const STAR_CLIP = 'polygon(50% 0%, 0% 100%, 100% 100%)';
 const generateStars = () => {
   return Array.from({ length: STAR_COUNT }).map((_, i) => {
-    const size = Math.random() * 4 + 8; 
+    const size = Math.random() * 4 + 4; 
     
     // SLOWER MAIN PATH: Increased from (18-32s) to (35-65s) to cross the screen
     const duration = Math.random() * 30 + 35; 
