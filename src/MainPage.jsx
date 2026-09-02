@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import tc25 from '../src/assets/tc25.webm'
+import hmti from '../src/assets/hmti.webm'
 export default function MainPage() {
   return (
     <div className="bg-neutral-950 min-h-screen text-white font-sans flex flex-col items-center justify-center">
@@ -25,7 +26,7 @@ export default function MainPage() {
             playsInline
           >
             {/* Replace with your actual file path in the public folder */}
-            <source src="/src/assets/tc25.webm" type="video/webm" />
+            <source src={tc25} type="video/webm" />
             Your browser does not support the video tag.
           </video>
 
@@ -46,7 +47,7 @@ export default function MainPage() {
             playsInline
           >
              {/* Replace with your actual file path in the public folder */}
-            <source src="/src/assets/hmti.webm" type="video/webm" />
+            <source src={hmti} type="video/webm" />
             Your browser does not support the video tag.
           </video>
 
